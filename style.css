@@ -1,25 +1,32 @@
+:root{
+  --color-brown: hsl(0, 59%, 41%);
+  --color-primary: hsl(0, 1%, 45%);
+  --color-srcondary: hsl(34, 78%, 91%);
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #757373;
-  font-family: 'Playfair Display', serif;
-  overflow-x: hidden;
-  text-decoration: none;
 }
 
 body{
-  overflow-y: hidden; 
-}
-
-main{
-  height: 100vh;
-  width: 100%;
-  display: flex;
+  color: var(--color-primary);
+  font-family: 'Playfair Display', serif;
   overflow: hidden;
 }
 
-main section.firstPart{
+a{
+  text-decoration: none;
+}
+
+main{
+  height: 90vh;
+  width: 100%;
+  display: flex;
+}
+
+.firstPart{
   height: 100%;
   width: 30%;
   display: flex;
@@ -28,21 +35,22 @@ main section.firstPart{
   justify-content: center;
 }
 
-main section.firstPart aside.logo{
-  height: 20%;
+.logo {
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-main section.firstPart aside.logo .imgDiv{
-  height: 100%;
-  width: 50%;
-  background-image: url("./images/logo.png");
-  background-position: center;
+.imgDiv {
+  width: min(200px, 80%);
+  height: 120px;
+  background: url(./images/logo.png);
+  background-position: left;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-main section.firstPart aside.text{
+.text{
   height: 70%;
   width: 90%;
   text-align: center;
@@ -51,20 +59,21 @@ main section.firstPart aside.text{
   justify-content: space-around;
 }
 
-main section.firstPart aside.text h3{
+.text h3{
   color: hsl(182, 25%, 50%);
   font-weight: 600;
 }
 
-main section.firstPart footer{
-  height: 10%;
-  width: 100%;
+footer{
+  height: 10vh;
+  width: 30%;
+  color: var(--color-primary);
   display: flex;
   justify-content: center;
 }
 
-main section.firstPart footer aside.foot{
-  width: 90%;
+.foot{
+  width: 95%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -72,12 +81,12 @@ main section.firstPart footer aside.foot{
   overflow: hidden;
 }
 
-main section.firstPart footer aside.foot p{
+.foot p{
   font-weight: bolder;
 }
 
-main section.firstPart footer aside.foot div.link,
-main section.firstPart footer aside.foot div.link a{
+.link,
+.link a{
   height: 2rem;
   width: 2rem;
   display: flex;
@@ -88,52 +97,63 @@ main section.firstPart footer aside.foot div.link a{
   cursor: pointer;
 }
 
-main section.firstPart footer aside.foot div.link:hover{
+.link:hover{
   background: hsl(0, 0%, 50%);
 }
 
-main section.firstPart footer aside.foot div.link:hover i{
-  color: aliceblue;
+.link:hover i{
+  color: var(--color-srcondary);
 }
 
-main section.imageSide{
-  height: 100%;
+.link a i{
+  color: var(--color-primary);
+}
+
+.imageSide{
+  height: 100vh;
   width: 70%;
-  background-image: url("./images/1.jpg");
+  background-image: url("./images/2.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 650px){
+  body{
+    color: var(--color-brown);
+  }
+
   main{
     flex-direction: column;
   }
 
-  main section.imageSide,
-  main section.firstPart{
+  .firstPart{
+    height: inherit;
     width: 100%;
+    position: absolute;
+    z-index: 100;
   }
 
-  main section.firstPart aside.text{
+  .text{
     height: 100%;
   }
 
-  main section.firstPart aside.logo{
-    height: 11%;
-    width: 25%;
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
+  .link a i,
+  .text h3{
+    color: var(--color-brown);
   }
 
-  main section.firstPart aside.logo .imgDiv{
+  .logo{
+    display: none;
+  }
+
+  footer{
+    color: var(--color-brown);
     width: 100%;
-    background-position: left;
   }
 
-  main section.firstPart footer{
-    height: 20%;
+  .imageSide{
+    width: 100%;
+    position: relative;
   }
 }
